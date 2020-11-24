@@ -2,8 +2,11 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = null;
 }
+
+<h1 class="text-center text-success"><i class="fas fa-graduation-cap"></i>Student list</h1>
+
+
 <table class="table">
     <tr>
         <th>
@@ -12,23 +15,26 @@
         <th>
             @Html.DisplayNameFor(model => model.Age)
         </th>
-        <th></th>
+        <th>
+            @Html.ActionLink("Create New", "Create")
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "CreateOrEdit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

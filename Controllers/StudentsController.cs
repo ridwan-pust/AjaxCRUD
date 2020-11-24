@@ -35,7 +35,9 @@ namespace AjaxCRUD.Controllers
             return View(student);
         }
 
-       
+        // GET: Students/CreateOrEdit/
+        // GET: Students/CreateOrEdit/5
+
         public ActionResult CreateOrEdit(int? id)
         {
             if (id == null)
@@ -51,8 +53,7 @@ namespace AjaxCRUD.Controllers
         }
 
         // POST: Students/CreateOrEdit/
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Students/CreateOrEdit/1
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateOrEdit(int id,[Bind(Include = "ID,Name,Age")] Student student)

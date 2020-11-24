@@ -1,11 +1,11 @@
-﻿function jquireyAjax(form) {
+﻿showInPopup = (url, title) => {
     $.ajax({
-        type: 'POST',
-        url: form.action,
-        data: new FormData(form),
-        contentType: false,
-        processData: false,
+        type: 'GET',
+        url: url,
         success: function (res) {
-            $("#home").html(res);
-
-    }
+            $('#form-modal .modal-body').html(res);
+            $('#form-modal .modal-title').html(title);
+            $('#form-modal').modal('show');
+        }
+    })
+}

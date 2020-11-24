@@ -19,4 +19,26 @@
     </div>
 </div>
 
+<a onclick="showInPopup('@Url.Action("CreateOrEdit"," Students",null)','New Transaction')" class="btn btn-success text-white"><i class="fas fa-random"></i> New Transaction</a>
 
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+      function showInPopup(url, title){
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (res) {
+                    $('#form-modal .modal-body').html(res);
+                    $('#form-modal .modal-title').html(title);
+                    $('#form-modal').modal('show');
+                }
+            })
+        }
+    </script>
+    
+    
+}
